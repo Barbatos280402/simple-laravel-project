@@ -1,4 +1,4 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 # Install system dependencies yang dibutuhkan Laravel
 # Setiap package di sini memiliki tujuan spesifik untuk mendukung extensions PHP
@@ -58,7 +58,11 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install dependencies PHP menggunakan Composer
-RUN composer install --optimize-autoloader
+RUN composer install \
+    --no-interaction \
+    --no-dev \
+    --optimize-autoloader \
+    --no-scripts
 
 # Buat direktori yang dibutuhkan Laravel
 RUN mkdir -p /var/www/html/storage/logs \

@@ -28,6 +28,7 @@ vendor/
 Thumbs.db
 
 # Laravel specific directories yang akan di-generate atau di-mount
+public/storage
 storage/app/*
 storage/framework/cache/*
 storage/framework/sessions/*
